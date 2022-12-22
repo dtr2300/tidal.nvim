@@ -6,7 +6,7 @@ local job_id = nil
 ---@param user_config? table
 function M.setup(user_config)
   M.config = require("tidal.config").merge(user_config)
-  terminal_id = M.config.terminal_id
+  terminal_id = M.config.terminal.id
   if M.config.plenary then
     require("plenary.filetype").add_file "tidal"
   end
@@ -116,7 +116,15 @@ function M.start(tidal_midi_in, nvim_midi_in, tidal_midi_out)
       return
     end
 
-    require("toggleterm").exec("ghci", terminal_id, 10, nil, "horizontal", false, true)
+    require("toggleterm").exec(
+      "ghci",
+      terminal_id,
+      require("tidal").config.terminal.size,
+      nil,
+      require("tidal").config.terminal.direction,
+      false,
+      true
+    )
     local term = require("toggleterm.terminal").get(terminal_id)
     if term ~= nil then
       job_id = term.job_id

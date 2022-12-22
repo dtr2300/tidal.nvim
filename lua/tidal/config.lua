@@ -8,13 +8,17 @@ local default_config = {
     start_midi_scd = nil, -- filename used for starting midi in / out
   },
   commands = true, -- create vim commands
-  highlight = "TidalEval", -- highlight color group for flashing
+  highlight = "TidalEval", -- highlight group used for flashing
   osc = {
     addr = "127.0.0.1", -- nvim osc server address
     port = 9000, -- nvim osc server port
   },
-  plenary = true, -- add filetype to plenary (for telescope.nvim)
-  terminal_id = 1, -- terminal id to use
+  plenary = false, -- add filetype to plenary (for telescope.nvim)
+  terminal = {
+    id = 1, -- toggleterm terminal id
+    direction = "horizontal", -- layout of the terminal
+    size = 10, -- width or height of the terminal
+  },
 }
 
 ---@param user_config? table

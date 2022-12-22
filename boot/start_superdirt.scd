@@ -3,8 +3,8 @@ var file;
 var config;
 
 s.reboot {
-    s.options.device = "ASIO";
-    s.options.sampleRate = 48000;
+    // s.options.device = "ASIO";
+    // s.options.sampleRate = 48000;
     s.options.numBuffers = 1024 * 256;
     s.options.memSize = 8192 * 32;
     s.options.numWireBufs = 80;
@@ -45,8 +45,8 @@ s.reboot {
         );
     };
 
-    s.recHeaderFormat_("wav");
     s.latency = 0.1;
-    s.volume = -12;
+    // s.recHeaderFormat_("wav");
+    // s.volume = -12;
 };
 )
