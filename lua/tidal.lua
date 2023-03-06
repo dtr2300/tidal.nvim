@@ -181,8 +181,10 @@ function M.stop(stop_sclang)
       require("toggleterm").exec("exit", terminal_id, nil, nil, nil, false, true)
     end, 50)
 
-    if stop_sclang and require("scnvim").is_running() then
-      require("scnvim").stop()
+    if stop_sclang then
+      if require("scnvim").is_running() then
+        require("scnvim").stop()
+      end
     end
   end
 end
