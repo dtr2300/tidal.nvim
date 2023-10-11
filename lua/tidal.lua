@@ -122,6 +122,7 @@ function M.start(tidal_midi_in, nvim_midi_in, tidal_midi_out)
       require("tidal").config.terminal.size,
       nil,
       require("tidal").config.terminal.direction,
+      nil,
       false,
       true
     )
@@ -176,9 +177,9 @@ function M.stop(stop_sclang)
     end
 
     job_id = nil
-    require("toggleterm").exec(":quit", terminal_id, nil, nil, nil, false, true)
+    require("toggleterm").exec(":quit", terminal_id, nil, nil, nil, nil, false, true)
     vim.defer_fn(function()
-      require("toggleterm").exec("exit", terminal_id, nil, nil, nil, false, true)
+      require("toggleterm").exec("exit", terminal_id, nil, nil, nil, nil, false, true)
     end, 50)
 
     if stop_sclang then
